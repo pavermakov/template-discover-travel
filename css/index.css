@@ -1,0 +1,206 @@
+.header {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+  .header__top-bar {
+    display: flex;
+    flex-direction: row;
+    height: 125px;
+  }
+  .header__brand {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 923px;
+    font-family: "Times New Roman", Georgia, serif;
+  }
+  .header__logo {
+    position: relative;
+    box-sizing: border-box;
+    border: 2px solid #b7b7b7;
+    padding: 13px;
+    padding-bottom: 19px;
+    font-size: 28px;
+    text-transform: uppercase;
+    line-height: 19px;
+    color: #59c45a;
+  }
+  .header__logo::after {
+    content: 'travel';
+    position: absolute;
+    bottom: -10px;
+    right: 50%;
+    transform: translateX(50%);
+    padding: 0 20px;
+    font-size: 18px;
+    background-color: #ffffff;
+  }
+  .header__navigation {
+    width: 100%;
+    max-width: 897px;
+  }
+  .header__jumbotron {
+    flex-grow: 1;
+    position: relative;
+  }
+
+/* ********************************************************************************************* */
+
+.navigation {
+  height: 100%;
+}
+  .navigation__list {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    height: 100%;
+  }
+  .navigation__item {
+    padding: 0 23px;
+    height: 100%;
+    font-family: 'Lato', sans-serif;
+    font-size: 18px;
+    line-height: 125px;
+    color: #474747;
+    font-weight: bold;
+    text-transform: uppercase;
+    user-select: none;
+  }
+  .navigation__item_active {
+    background-color: #59c45a;
+    color: #ffffff;
+  }
+  .navigation__item:not(.navigation__item_active) {
+    cursor: pointer;
+  }
+
+/* ********************************************************************************************* */
+
+.jumbotron {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: url('/images/background.png');
+  background-size: cover;
+}
+  .jumbotron__overlay {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: #316b6d;
+    opacity: .45;
+  }
+  .jumbotron__content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    max-width: 1024px;
+  }
+  .jumbotron__row {}
+  .jumbotron__row + .jumbotron__row  {
+    margin-top: 55px;
+  }
+  .jumbotron__row + .jumbotron__row_lowered  {
+    margin-top: 100px;
+  }
+  .jumbotron__title {
+    font-family: 'UTM Avo Bold';
+    font-size: 68px;
+    text-align: center;
+    color: #ffffff;
+  }
+  .jumbotron__description {
+    display: block;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 22px;
+    line-height: 38px;
+    text-align: center;
+    color: #ffffff;
+  }
+  .jumbotron__controls {
+    text-align: center;
+  }
+
+/* ********************************************************************************************* */
+
+.button {
+  padding: 26px 44px;
+  background-color: #59c45a;
+  border-radius: 5px;
+  font-size: 26px;
+  font-weight: bold;
+  text-transform: uppercase;
+  box-shadow: 0 0 35px rgba(0, 0, 0, .35);
+  outline: rgba(0, 0, 0, .35);
+  color: #ffffff;
+}
+
+/* ********************************************************************************************* */
+
+@media screen and (max-width: 1000px) {
+  .header {}
+    .header__top-bar {
+      flex-direction: column;
+      height: auto;
+    }
+    .header__brand {
+      max-width: 100%;
+      padding: 20px;
+    }
+    .header__navigation {
+      max-width: 100%;
+    }
+
+  /* ******************************************************************************************* */
+
+  .navigation {
+    height: auto;
+  }
+    .navigation__list {
+      flex-direction: column;
+      justify-content: center;
+    }
+    .navigation__item {
+      width: 100%;
+      line-height: 60px;
+      text-align: center;
+    }
+
+  /* ******************************************************************************************* */
+
+  .jumbotron {
+    max-width: 100%;
+  }
+    .jumbotron__row {}
+    .jumbotron__row + .jumbotron__row  {
+      margin-top: 25px;
+    }
+    .jumbotron__row + .jumbotron__row_lowered  {
+      margin-top: 45px;
+    }
+    .jumbotron__title {
+      font-size: 38px;
+    }
+    .jumbotron__description {
+      font-size: 18px;
+      line-height: 28px;
+    }
+
+  /* ******************************************************************************************* */
+
+  .button {
+    font-size: 18px;
+    padding: 16px 24px;
+  }
+}
