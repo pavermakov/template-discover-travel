@@ -144,7 +144,74 @@
   box-shadow: 0 0 35px rgba(0, 0, 0, .35);
   outline: rgba(0, 0, 0, .35);
   color: #ffffff;
+  cursor: pointer;
 }
+
+/* ********************************************************************************************* */
+
+.section {
+  padding: 100px 80px;
+}
+  .section__header {
+    text-align: center;
+  }
+  .section__title {
+    display: inline-block;
+    position: relative;
+    padding: 15px;
+    padding-top: 0;
+    border-bottom: 1px solid #c2c2c2;
+    font-family: 'Lato', sans-serif;
+    font-size: 28px;
+    text-transform: uppercase;
+    color: #59c45a;
+  }
+  .section__title::after {
+    display: block;
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 3px;
+    background-color: #59c45a;
+  }
+  .section__content {}
+  .section__header + .section__content {
+    margin-top: 75px;
+  }
+
+/* ********************************************************************************************* */
+
+.favorable {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows:  1fr 1fr;
+  grid-gap: 30px;
+  max-width: 1170px;
+  margin: 0 auto;
+}
+  .favorable__item {}
+  .favorable__image {
+    width: 100%;
+    max-width: 270px;
+  }
+  .favorable__info {}
+  .favorable__title {
+    font-family: 'Lato', sans-serif;
+    font-size: 15px;
+  }
+  .favorable__description {
+    display: block;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    line-height: 22px;
+    color: #959595;
+  }
+  .favorable__title + .favorable__description {
+    margin-top: 22px;
+  }
 
 /* ********************************************************************************************* */
 
@@ -199,8 +266,28 @@
 
   /* ******************************************************************************************* */
 
+  .favorable {
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows:  1fr 1fr 1fr 1fr;
+    max-width: 100%;
+  }
+
+  /* ******************************************************************************************* */
+
   .button {
     font-size: 18px;
     padding: 16px 24px;
   }
+}
+
+/* ********************************************************************************************* */
+
+@media screen and (max-width: 762px) {
+  .favorable {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(8, auto);
+  }
+    .favorable__item {
+      text-align: center;
+    }
 }
