@@ -1,1 +1,1 @@
-# Tempalte
+# Discover Travel Template

@@ -150,8 +150,32 @@
 /* ********************************************************************************************* */
 
 .section {
+  box-sizing: border-box;
   padding: 100px 80px;
 }
+  .section_split {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: stretch;
+  }
+  .section_small {
+    padding: 60px;
+  }
+  .section_paddless {
+    padding: 0;
+  }
+  .section_limited {
+    max-width: 1370px;
+    margin: 0 auto;
+  }
+  .section_gray {
+    background-color: #efeeee;
+  }
+  .section__item {}
+  .section_split > .section__item {
+    min-width: 50%;
+  }
   .section__header {
     text-align: center;
   }
@@ -181,6 +205,9 @@
   .section__header + .section__content {
     margin-top: 75px;
   }
+  .section_small > .section__header + .section__content {
+    margin-top: 55px;
+  }
 
 /* ********************************************************************************************* */
 
@@ -189,7 +216,6 @@
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-template-rows:  1fr 1fr;
   grid-gap: 30px;
-  max-width: 1170px;
   margin: 0 auto;
 }
   .favorable__item {}
@@ -212,6 +238,107 @@
   .favorable__title + .favorable__description {
     margin-top: 22px;
   }
+
+/* ********************************************************************************************* */
+
+.carousel {
+  position: relative;
+  height: 100%;
+  overflow: hidden;
+}
+  .carousel__item {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    min-width: 100%;
+    min-height: 100%;
+    opacity: 1;
+    transition: opacity .3s linear;
+  }
+  .carousel__item_transparent {
+    opacity: 0;
+  }
+  .carousel__dots {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 99999;
+  }
+  .carousel__dot {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: #ffffff;
+    opacity: .5;
+    font-size: 0;
+    transition: opacity .3s linear;
+  }
+  .carousel__dot + .carousel__dot {
+    margin-left: 6px;
+  }
+  .carousel__dot_active {
+    opacity: 1;
+  }
+/* ********************************************************************************************* */
+
+.service {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows:  1fr 1fr;
+  grid-gap: 35px 60px;
+}
+  .service__row {}
+  .service__row + .service__row {
+    margin-top: 25px;
+  }
+  .service__icon {
+    display: block;
+    margin: 0 auto;
+  }
+  .service__description {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    line-height: 24px;
+    color: #959595;
+  }
+
+/* ********************************************************************************************* */
+
+@media screen and (max-width: 1280px) {
+  .section {}
+    .section_small {
+      padding: 30px;
+    }
+    .section_small > .section__header + .section__content {
+      margin-top: 30px;
+    }
+
+  /* ******************************************************************************************* */
+
+  .service {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    grid-gap: 25px;
+  }
+    .service__item {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      align-items: flex-start;
+    }
+    .service__row {}
+    .service__row + .service__row {
+      margin-top: 0;
+      margin-left: 15px;
+    }
+    .service__icon {
+      position: relative;
+      top: 7px;
+    }
+}
 
 /* ********************************************************************************************* */
 
@@ -266,10 +393,27 @@
 
   /* ******************************************************************************************* */
 
+  .section {}
+    .section_split {
+      flex-direction: column;
+      align-items: center;
+    }
+    .section_split > .section__item {
+      min-width: 100%;
+    }
+
+  /* ******************************************************************************************* */
+
   .favorable {
     grid-template-columns: 1fr 2fr;
     grid-template-rows:  1fr 1fr 1fr 1fr;
     max-width: 100%;
+  }
+
+  /* ******************************************************************************************* */
+
+  .carousel {
+    height: 500px;
   }
 
   /* ******************************************************************************************* */
@@ -279,8 +423,6 @@
     padding: 16px 24px;
   }
 }
-
-/* ********************************************************************************************* */
 
 @media screen and (max-width: 762px) {
   .favorable {
